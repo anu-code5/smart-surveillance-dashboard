@@ -9,6 +9,9 @@ const {
     getIncidents
 } = require("../controllers/incidentController")
 
+const upload =
+require("../middleware/uploadMiddleware")
+
 router.get(
     "/",
     protect,
@@ -16,9 +19,10 @@ router.get(
 )
 
 router.post(
-    "/",
-    protect,
-    createIncident
+  "/",
+  protect,
+  upload.single("image"),
+  createIncident
 )
 
 module.exports = router

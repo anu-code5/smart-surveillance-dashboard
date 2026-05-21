@@ -7,6 +7,10 @@ const incidentSchema = new mongoose.Schema(
         required: true
     },
 
+    imageUrl: {
+        type: String
+    },
+
     description: {
         type: String,
         required: true

@@ -1,55 +1,102 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
+import Navbar from "../components/Navbar"
+import IncidentForm from "../components/IncidentForm"
+import IncidentCard from "../components/IncidentCard"
+
 function Dashboard() {
 
-  const [incidents, setIncidents] = useState([])
+    const [incidents, setIncidents] =
+        useState([])
 
-  useEffect(() => {
+    const fetchIncidents =
+        async () => {
 
-    const fetchIncidents = async () => {
+            const token =
+                localStorage.getItem("token")
 
-      const token =
-        localStorage.getItem("token")
+            const res =
+                await axios.get(
+                    "http://localhost:5000/api/incidents",
+                    {
+                        headers: {
+                            Authorization:
+                                `Bearer ${token}`
+                        }
+                    }
+                )
 
-      const res = await axios.get(
-        "http://localhost:5000/api/incidents",
-        {
-          headers: {
-            Authorization:
-              `Bearer ${token}`
-          }
+            setIncidents(res.data)
         }
-      )
 
-      setIncidents(res.data)
-    }
+    useEffect(() => {
 
-    fetchIncidents()
+        fetchIncidents()
 
-  }, [])
+    }, [])
 
-  return (
-    <div>
+    return (
 
-      <h1>Dashboard</h1>
+        <div
+            className="
+            min-h-screen 
+            bg-gradient-to-br
+            from-blue-600
+            via-cyan-400
+            to-slate-300
+            "
+        >
+            <Navbar />
 
-      {incidents.map((incident) => (
+              <div
+                className="
+                  bg-white/70
+                  backdrop-blur-md
+                  shadow-xl
+                  rounded-3xl
+                  p-8
+                  border
+                  border-white/2000
+                  "
+              >
 
-        <div key={incident._id}>
 
-          <h3>{incident.title}</h3>
+                <IncidentForm
+                    refreshIncidents={
+                        fetchIncidents
+                    }
+                />
 
-          <p>
-            {incident.description}
-          </p>
+                <div
+                    className="
+                        grid
+                        md:grid-cols-2
+                        gap-4
+                    "
+                >
 
-        </div>
+                    {incidents.map(
+                        (incident) => (
 
-      ))}
+                            <IncidentCard
+                                key={
+                                    incident._id
+                                }
+                                incident={
+                                    incident
+                                }
+                            />
 
-    </div>
-  )
+                        )
+                    )}
+
+                </div>
+              </div>
+
+         </div>
+
+    )
 }
 
 export default Dashboard

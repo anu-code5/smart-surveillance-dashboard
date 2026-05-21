@@ -5,8 +5,17 @@ const createIncident = async (req, res) => {
     try {
 
         const incident = await Incident.create({
+
             title: req.body.title,
-            description: req.body.description,
+
+            description:
+                req.body.description,
+
+            imageUrl:
+                req.file
+                    ? `/uploads/${req.file.filename}`
+                    : "",
+
             createdBy: req.user.id
         })
 
