@@ -33,12 +33,24 @@ function IncidentCard({ incident }) {
 
             )
             }
+            
             <h2 className="text-lg font-bold">
                 {incident.title}
             </h2>
 
             <p className="text-gray-600">
                 {incident.description}
+            </p>
+            <p className="mt-2">
+                Object:
+                {" "}
+                {incident.detectedObject}
+                </p>
+
+                <p>
+                Confidence:
+                {" "}
+                {incident.confidence}
             </p>
 
             <p className="mt-2 text-sm">

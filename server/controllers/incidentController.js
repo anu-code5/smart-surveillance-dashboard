@@ -1,23 +1,52 @@
+const {
+    detectObjects
+} = require("../services/aiService")
+const path = require("path")
 const Incident = require("../models/Incident")
 
 const createIncident = async (req, res) => {
+    let detectedObject = "Unknown"
+    let confidence = 0
+
+    if (req.file) {
+
+        const detections =
+            await detectObjects(
+                req.file.path
+            )
+
+        if (detections.length > 0) {
+
+            detectedObject =
+                detections[0].object
+
+            confidence =
+                detections[0].confidence
+        }
+    }
 
     try {
 
-        const incident = await Incident.create({
+        const incident =
+            await Incident.create({
 
-            title: req.body.title,
+                title: req.body.title,
 
-            description:
-                req.body.description,
+                description:
+                    req.body.description,
 
-            imageUrl:
-                req.file
+                imageUrl:
+                    req.file
                     ? `/uploads/${req.file.filename}`
                     : "",
 
-            createdBy: req.user.id
-        })
+                detectedObject,
+
+                confidence,
+
+                createdBy:
+                    req.user.id
+            })
 
         res.status(201).json(incident)
 

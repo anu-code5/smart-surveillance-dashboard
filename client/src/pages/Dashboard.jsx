@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
+//import axios from "axios"
+import API from "../services/api"
 
 import Navbar from "../components/Navbar"
 import IncidentForm from "../components/IncidentForm"
@@ -17,8 +18,8 @@ function Dashboard() {
                 localStorage.getItem("token")
 
             const res =
-                await axios.get(
-                    "http://localhost:5000/api/incidents",
+                await API.get(
+                    "/incidents",
                     {
                         headers: {
                             Authorization:
