@@ -1,15 +1,25 @@
 const express = require("express")
-const protect = require("../middleware/authMiddleware")
-
 const router = express.Router()
 
-router.get("/profile", protect, (req, res) => {
+const protect =
+require("../middleware/authMiddleware")
 
-    res.json({
-        message: "Protected Route Accessed",
-        user: req.user
-    })
+const User =
+require("../models/User")
 
-})
+router.get(
+  "/profile",
+  protect,
+  async (req, res) => {
 
-module.exports = router
+    const user =
+      await User.findById(
+        req.user.id
+      ).select("-password")
+
+    res.json(user)
+
+  }
+)
+
+module.exports = router 

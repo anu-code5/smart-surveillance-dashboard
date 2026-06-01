@@ -10,6 +10,8 @@ function Dashboard() {
 
     const [incidents, setIncidents] =
         useState([])
+    const [user, setUser] =
+        useState(null)
 
     const fetchIncidents =
         async () => {
@@ -31,9 +33,29 @@ function Dashboard() {
             setIncidents(res.data)
         }
 
+    const fetchUser = async () => {
+
+        const token =
+            localStorage.getItem("token")
+
+        const res =
+            await API.get(
+            "/user/profile",
+            {
+                headers: {
+                Authorization:
+                    `Bearer ${token}`
+                }
+            }
+            )
+
+        setUser(res.data)
+        }
+
     useEffect(() => {
 
-        fetchIncidents()
+        fetchIncidents(),
+        fetchUser()
 
     }, [])
 
@@ -48,7 +70,7 @@ function Dashboard() {
             to-slate-300
             "
         >
-            <Navbar />
+            <Navbar user={user} />
 
               <div
                 className="

@@ -2,33 +2,42 @@ import { useState } from "react"
 //import axios from "axios"
 import API from "../services/api"
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 function Login() {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
   const navigate = useNavigate()
   const handleSubmit = async (e) => {
 
     e.preventDefault()
+    try{
+      const res = await API.post(
+        "/auth/login",
+        {
+          email,
+          password
+        }
+      )
 
-    const res = await API.post(
-      "/auth/login",
-      {
-        email,
-        password
-      }
-    )
+      localStorage.setItem(
+        "token",
+        res.data.token
+      )
 
-    localStorage.setItem(
-      "token",
-      res.data.token
-    )
+      //alert("Login Success")
 
-    //alert("Login Success")
-
-    navigate("/dashboard")
+      navigate("/dashboard")
+    }
+    catch (err) {
+        setError(
+          err.response?.data?.message ||
+          "Login failed"
+        )
+    }
   }
 
   return (
@@ -43,6 +52,22 @@ function Login() {
       <p className="text-center text-gray-500 mb-6">
         Sign in to continue
       </p>
+
+      {
+        error && (
+          <div
+            className="
+              bg-red-100
+              text-red-700
+              p-3
+              rounded
+              mb-4
+            "
+          >
+            {error}
+          </div>
+        )
+      }
 
       <form
         onSubmit={handleSubmit}
@@ -99,7 +124,15 @@ function Login() {
         >
           Login
         </button>
-
+        <p className="mt-4 text-center">
+          Don't have an account?{" "}
+          <Link
+            to="/register"
+            className="text-blue-600 font-semibold"
+          >
+            Register
+          </Link>
+        </p>
       </form>
 
     </div>
