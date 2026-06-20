@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import axios from "axios"
+
 
 function IncidentForm({ refreshIncidents }) {
 
@@ -9,7 +10,9 @@ function IncidentForm({ refreshIncidents }) {
     const [description, setDescription] =
         useState("")
     const [image, setImage] =
-    useState(null)
+        useState(null)
+    const fileInputRef =
+        useRef(null)
 
     const submitHandler =
         async (e) => {
@@ -88,19 +91,81 @@ function IncidentForm({ refreshIncidents }) {
             />
 
             <input
+                ref={fileInputRef}
+                id="image-upload"
                 type="file"
+                className="hidden"
                 onChange={(e) =>
                     setImage(e.target.files[0])
                 }
-                className="mb-2
-                bg-slate-100
-                text-black
-                hover:bg-slate-200 transition
-                px-2
-                py-2
-                rounded"
+                
             />
 
+            <label
+                htmlFor="image-upload"
+                className="
+                    cursor-pointer
+                    bg-slate-200
+                    px-4
+                    py-2
+                    rounded
+                    hover:bg-slate-300
+                "
+                >
+                Choose Media
+            </label>
+            {
+            image && (
+
+                <div
+                    className="
+                        flex
+                        items-center
+                        gap-3
+                        mt-3
+                        px-3
+                        py-2
+                        rounded-lg
+                    "
+                >
+
+                <span
+                    className="
+                    text-sm
+                    text-gray-600
+                    "
+                >
+                    {image.name}
+                </span>
+
+                 <button
+                    type="button"
+                    onClick={() => {
+
+                    setImage(null)
+
+                    fileInputRef.current.value =
+                        ""
+
+                    }}
+                    className="
+                    text-red-600
+                    font-bold
+                    bg-gray-100
+                    px-2
+                    py=1
+                    text-lg
+                    rounded
+                    hover:bg-slate-300
+                    "
+                >
+                    ✕
+                </button>
+
+                </div>
+
+            )
+            }
             <button
                 className="
                     bg-blue-500

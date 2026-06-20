@@ -26,6 +26,18 @@ const incidentSchema = new mongoose.Schema(
         default: 0
     },
 
+    detections: [
+        {
+            object: String,
+            confidence: Number
+        }
+    ],
+
+    severity: {
+        type: String,
+        default: "Low" 
+    },
+
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"

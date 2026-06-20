@@ -7,10 +7,12 @@ const Incident = require("../models/Incident")
 const createIncident = async (req, res) => {
     let detectedObject = "Unknown"
     let confidence = 0
+    let detections = []
+    let severity = "Low"
 
     if (req.file) {
 
-        const detections =
+        detections =
             await detectObjects(
                 req.file.path
             )
@@ -23,7 +25,26 @@ const createIncident = async (req, res) => {
             confidence =
                 detections[0].confidence
         }
+
+        const personCount =
+            detections.filter(
+                d =>
+                d.object === "person"
+            ).length
+
+        if (personCount >= 5) {
+            severity = "High"
+        }
+        else if (
+            personCount >= 2
+        ) {
+            severity = "Medium"
+        }
     }
+
+    
+
+    
 
     try {
 
@@ -43,6 +64,10 @@ const createIncident = async (req, res) => {
                 detectedObject,
 
                 confidence,
+
+                detections,
+
+                severity,
 
                 createdBy:
                     req.user.id

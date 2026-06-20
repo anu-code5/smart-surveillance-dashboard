@@ -14,6 +14,34 @@ function IncidentCard({ incident }) {
             "
         >
 
+        <span
+            className={`
+                mb-6
+                mt-1
+                inline-block
+                px-3
+                py-1
+                rounded-full
+                text-sm
+                font-medium
+
+                ${
+                incident.severity === "High"
+                ? "bg-red-100 text-red-700"
+
+                : incident.severity ===
+                    "Medium"
+                ? "bg-yellow-100 text-yellow-700"
+
+                : "bg-green-100 text-green-700"
+                }
+            `}
+        >
+
+            {incident.severity}
+
+        </span>
+
         {
             incident.imageUrl && (
 
@@ -52,6 +80,24 @@ function IncidentCard({ incident }) {
                 {" "}
                 {incident.confidence}
             </p>
+
+            {
+                incident.detections?.map(
+                    (detection, index) => (
+
+                    <p key={index}>
+
+                        {detection.object}
+                        {" "}
+                        (
+                        {detection.confidence}
+                        )
+
+                    </p>
+
+                    )
+                )
+            }
 
             <p className="mt-2 text-sm">
                 Logged by:
