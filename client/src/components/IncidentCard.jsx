@@ -69,7 +69,7 @@ function IncidentCard({ incident }) {
             <p className="text-gray-600">
                 {incident.description}
             </p>
-            <p className="mt-2">
+            {/* <p className="mt-2">
                 Object:
                 {" "}
                 {incident.detectedObject}
@@ -79,30 +79,70 @@ function IncidentCard({ incident }) {
                 Confidence:
                 {" "}
                 {incident.confidence}
-            </p>
+            </p> */}
 
             {
+                <div className="mt-2">
+
+            <h4
+                className="
+                font-semibold
+                text-gray-700
+                mb-1
+                "
+            >
+                Detections
+            </h4>
+
+            <div className="space-y-1">
+
+                {
                 incident.detections?.map(
-                    (detection, index) => (
+                    (
+                    detection,
+                    index
+                    ) => (
 
-                    <p key={index}>
-
-                        {detection.object}
+                    <p
+                        key={index}
+                        className="
+                        text-sm
+                        text-gray-600
+                        "
+                    >
+                        • {
+                        detection.object
+                        }
                         {" "}
                         (
-                        {detection.confidence}
-                        )
-
+                        {
+                        (
+                            detection.confidence *
+                            100
+                        ).toFixed(0)
+                        }
+                        %)
                     </p>
 
                     )
                 )
+                }
+
+            </div>
+
+            </div>
             }
 
             <p className="mt-2 text-sm">
                 Logged by:
                 {" "}
                 {incident.createdBy?.name}
+            </p>
+
+            <p className="text-sm text-gray-500">
+                {new Date(
+                    incident.createdAt
+                ).toLocaleString()}
             </p>
 
         </div>

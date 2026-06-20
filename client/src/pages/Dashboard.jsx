@@ -5,6 +5,9 @@ import API from "../services/api"
 import Navbar from "../components/Navbar"
 import IncidentForm from "../components/IncidentForm"
 import IncidentCard from "../components/IncidentCard"
+import AnalyticsCards from "../components/AnalyticsCards"
+import ObjectDetectionChart from "../components/ObjectDetectionChart"
+import SeverityChart from "../components/SeverityChart"
 
 function Dashboard() {
 
@@ -12,6 +15,9 @@ function Dashboard() {
         useState([])
     const [user, setUser] =
         useState(null)
+
+    const [filter, setFilter] =
+        useState("All")
 
     const fetchIncidents =
         async () => {
@@ -59,6 +65,14 @@ function Dashboard() {
 
     }, [])
 
+    const filteredIncidents =
+        filter === "All"
+            ? incidents
+            : incidents.filter(
+                incident =>
+                incident.severity === filter
+            )
+
     return (
 
         <div
@@ -72,18 +86,114 @@ function Dashboard() {
         >
             <Navbar user={user} />
 
-              <div
+            <h2
                 className="
-                  bg-white/70
-                  backdrop-blur-md
-                  shadow-xl
-                  rounded-3xl
-                  p-8
-                  border
-                  border-white/2000
-                  "
-              >
+                    text-2xl
+                    font-bold
+                    text-white
+                    mb-4
+                    bg-black/30
+                    backdrop-blur-md
+                    p-4
+                "
+            >
+                Analytics Overview
+            </h2>
 
+            <AnalyticsCards
+                    incidents={incidents}
+            />
+          
+            <div
+                className="
+                grid
+                grid-cols-1
+                lg:grid-cols-2
+                gap-6
+                mb-8
+                "
+                >
+
+
+                <ObjectDetectionChart
+                incidents={incidents}
+                />
+
+                <SeverityChart
+                incidents={incidents}
+                />
+
+                </div>
+
+            <h2
+                className="
+                    text-2xl
+                    font-bold
+                    text-white
+                    mb-4
+                    bg-black/30
+                    backdrop-blur-md
+                    p-4
+                "
+            >
+                Incidents
+            </h2>
+            <div
+                className="
+                    flex
+                    gap-3
+                    mb-6
+                    flex-wrap
+                "
+                >
+
+                {
+                    [
+                    "All",
+                    "Low",
+                    "Medium",
+                    "High"
+                    ].map(level => (
+
+                    <button
+                        key={level}
+                        onClick={() =>
+                        setFilter(level)
+                        }
+                        className={`
+                        px-4
+                        py-2
+                        rounded-full
+                        font-medium
+                        transition
+
+                        ${
+                            filter === level
+                            ? "bg-blue-600 text-white"
+                            : "bg-white text-gray-700"
+                        }
+                        `}
+                    >
+
+                        {level}
+
+                    </button>
+
+                    ))
+                }
+
+                </div>
+                <div
+                    className="
+                    bg-white/70
+                    backdrop-blur-md
+                    shadow-xl
+                    rounded-3xl
+                    p-8
+                    border
+                    border-white/2000
+                    "
+                >
 
                 <IncidentForm
                     refreshIncidents={
@@ -98,9 +208,16 @@ function Dashboard() {
                         gap-4
                     "
                 >
-
-                    {incidents.map(
-                        (incident) => (
+                {
+                    filteredIncidents.length === 0
+                    ? (
+                        <div className="flex text-center px-5 py-10">
+                            No incidents found
+                        </div>
+                        )
+                    : (
+                        filteredIncidents.map(
+                            (incident) => (
 
                             <IncidentCard
                                 key={
@@ -112,7 +229,9 @@ function Dashboard() {
                             />
 
                         )
-                    )}
+                        )
+                        )
+                    }
 
                 </div>
               </div>

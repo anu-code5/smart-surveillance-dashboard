@@ -44,8 +44,6 @@ const createIncident = async (req, res) => {
 
     
 
-    
-
     try {
 
         const incident =
@@ -90,6 +88,7 @@ const getIncidents = async (req, res) => {
 
         const incidents = await Incident.find()
             .populate("createdBy", "name email")
+            .sort({ createdAt: -1 })
 
         res.status(200).json(incidents)
 
