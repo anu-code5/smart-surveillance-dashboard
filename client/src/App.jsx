@@ -6,7 +6,8 @@ import heroImg from './assets/hero.png'
 import {
  BrowserRouter,
  Routes,
- Route
+ Route,
+ Navigate
 } from "react-router-dom"
 
 import Register from "./pages/Register"
@@ -20,6 +21,15 @@ function App() {
   <BrowserRouter>
 
    <Routes>
+
+    <Route
+      path="/"
+      element={
+        <Navigate
+          to="/login"
+        />
+      }
+    />
 
     <Route
       path="/register"
