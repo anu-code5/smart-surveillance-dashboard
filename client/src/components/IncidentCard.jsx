@@ -47,7 +47,7 @@ function IncidentCard({ incident }) {
 
                 <img
                 src={
-                    `http://localhost:5000${incident.imageUrl}`
+                    `https://smart-surveillance-dashboard.onrender.com${incident.imageUrl}`
                 }
                 alt="incident"
                 className="

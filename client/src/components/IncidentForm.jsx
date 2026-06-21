@@ -1,5 +1,6 @@
 import { useState, useRef } from "react"
 import axios from "axios"
+import API from "../services/api"
 
 
 function IncidentForm({ refreshIncidents }) {
@@ -29,7 +30,7 @@ function IncidentForm({ refreshIncidents }) {
         formData.append("image", image)
 
         await axios.post(
-        "http://localhost:5000/api/incidents",
+        "/incidents",
         formData,
                 {
                     headers: {
