@@ -130,7 +130,7 @@ function LiveCamera() {
 
         const res =
             await axios.post(
-                "http://127.0.0.1:8000/detect",
+                "https://smart-surveillance-ai.onrender.com/detect",
                 formData,
                 {
                     headers: {
