@@ -29,8 +29,8 @@ function IncidentForm({ refreshIncidents }) {
         formData.append("description", description)
         formData.append("image", image)
 
-        await axios.post(
-        "/api/incidents",
+        API.post(
+        "/incidents",
         formData,
                 {
                     headers: {
