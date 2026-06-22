@@ -29,7 +29,7 @@ function IncidentForm({ refreshIncidents }) {
         formData.append("description", description)
         formData.append("image", image)
 
-        API.post(
+        await API.post(
         "/incidents",
         formData,
                 {
