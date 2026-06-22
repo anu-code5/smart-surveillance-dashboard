@@ -8,6 +8,7 @@ import IncidentCard from "../components/IncidentCard"
 import AnalyticsCards from "../components/AnalyticsCards"
 import ObjectDetectionChart from "../components/ObjectDetectionChart"
 import SeverityChart from "../components/SeverityChart"
+import LiveCamera from "../components/LiveCamera"
 
 function Dashboard() {
 
@@ -82,9 +83,30 @@ function Dashboard() {
             from-blue-600
             via-cyan-400
             to-slate-300
+            w-screen
             "
         >
             <Navbar user={user} />
+
+            <h2
+                className="
+                    text-2xl
+                    font-bold
+                    text-white
+                    mb-2
+                    bg-black/30
+                    backdrop-blur-md
+                    p-4
+                "
+            >
+                Live Surveillance Feed
+            </h2>
+
+            <div className="grid grid-cols-2 gap-6">
+                <LiveCamera />
+            </div>
+
+           
 
             <h2
                 className="
@@ -113,7 +135,6 @@ function Dashboard() {
                 mb-8
                 "
                 >
-
 
                 <ObjectDetectionChart
                 incidents={incidents}
