@@ -91,18 +91,20 @@ function About() {
         </h2>
 
         <pre className="text-gray-700 whitespace-pre-wrap">
-{`
-React + Tailwind
-        ↓
-Node.js + Express
-        ↓
-MongoDB Atlas
-
-        ↘
-
-   Flask AI Service
-      (YOLOv8)
-`}
+        {`
+        React + Tailwind
+        |
+        v
+        Node.js + Express
+        |
+        v
+        MongoDB Atlas
+        
+        \\
+        
+        Flask AI Service
+        (YOLOv8)
+        `}
         </pre>
 
       </div>
