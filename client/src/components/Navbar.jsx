@@ -96,6 +96,12 @@ function Navbar({ user }) {
             >
                 Logout
             </button>
+            <Link
+              to="/about"
+              className="hover:text-blue-500"
+            >
+              About
+            </Link>
 
         </div>
            
