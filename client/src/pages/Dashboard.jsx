@@ -101,6 +101,16 @@ function Dashboard() {
             >
                 Live Surveillance Feed
             </h2>
+            <h5
+                className="
+                    text-xl
+                    text-slate
+                    mb-2
+                    bg-black/30
+                    backdrop-blur-md
+                    p-4
+                ">Real-time monitoring using YOLOv8 object detection and automated alert generation.
+            </h5>
 
             <div className="grid grid-cols-2 gap-6">
                 <LiveCamera />
