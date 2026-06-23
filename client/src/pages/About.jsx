@@ -5,7 +5,7 @@ function About() {
     <div className="max-w-6xl mx-auto px-6 py-10">
 
       <h1 className="text-4xl font-bold mb-4">
-        AI-Powered Surveillance Dashboard
+        Smart Surveillance Monitoring System
       </h1>
 
       <p className="text-gray-600 mb-10">
