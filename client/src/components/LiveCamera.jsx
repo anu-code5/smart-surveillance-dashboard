@@ -196,9 +196,9 @@ return (
         width="100%"
         className="rounded-lg"
       />
-      {/* <div
+      { <div
         className={`
-            px-60
+            px-2
             py-2
             rounded-lg
             text-white
@@ -210,7 +210,23 @@ return (
             ? "🟢" 
             : "🔴"
         }
-        </div> */}
+        </div> }
+      {
+        loading && (
+          <div className="
+            bg-yellow-100
+            border
+            border-yellow-400
+            p-3
+            rounded-lg
+            mt-3
+          ">
+            ⏳ AI Analysis in Progress...
+            <br />
+            Free hosting may take 20-60 seconds.
+          </div>
+        )
+      }
 
       <div className="flex gap-3 mt-4">
 
@@ -244,7 +260,7 @@ return (
               : "Analyze Frame"
           }
         </button>
-{/* 
+{
         <button
         onClick={() =>
             setMonitoring(
@@ -271,7 +287,7 @@ return (
             : "Start Monitoring"
         }
 
-        </button> */}
+        </button> }
 
       </div>
 
