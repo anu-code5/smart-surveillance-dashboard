@@ -17,105 +17,112 @@ function Navbar({ user }) {
     return (
 
         <nav
-            className="
-                bg-white/70
-                backdrop-blur-md
-                border
-                border-white/20
-                px-6
-                py-4
-                flex
-                justify-between
-                items-center
-                mb-6
-            "
-        >
-
-        <div className="flex items-center gap-3">
-
-        <div
-            className="
-            w-12 h-12
-            rounded-xl
-            bg-blue-600
-            flex items-center justify-center
-            text-white
-            "
-        >
-            🛡️
-        </div>
-
-        <h1 className="text-3xl font-bold text-slate-800">
-            Smart Surveillance Monitoring System
-        </h1>
-
-
-  <div className="flex items-center gap-4 bg-slate-100 px-3 py-2 rounded-full">
-
-      <Link
-        to="/about"
-        className="
-          font-medium
-          text-slate-700
-          hover:text-blue-600
-          transition
-        "
-      >
-        About
-      </Link>
-
-        <div
           className="
+            bg-white/70
+            backdrop-blur-md
+            border
+            border-white/20
+            px-6
+            py-4
             flex
+            justify-between
             items-center
-            gap-3
-            bg-slate-100
-            px-3
-            py-2
-            rounded-full
+            mb-6
           "
         >
-
-          <div
-            className="
-              w-10
-              h-10
-              rounded-full
-              bg-blue-600
-              text-white
-              flex
-              items-center
-              justify-center
-              font-bold
-            "
-          >
-            {initial}
-          </div>
-
-          <span
-            className="
-              font-medium
-              text-slate-700
-            "
-          >
-            {user?.name}
-          </span>
-
         
-
-            <button
-                onClick={logout}
-                className="bg-red-600 px-4 py-2 rounded-xl text-white hover:bg-red-700 transition"
+          {/* Left Section */}
+          <div className="flex items-center gap-3">
+        
+            <div
+              className="
+                w-12 h-12
+                rounded-xl
+                bg-blue-600
+                flex items-center justify-center
+                text-white
+              "
             >
+              🛡️
+            </div>
+        
+            <h1 className="text-3xl font-bold text-slate-800">
+              Smart Surveillance Monitoring System
+            </h1>
+        
+          </div>
+        
+          {/* Right Section */}
+          <div className="flex items-center gap-4">
+        
+            <Link
+              to="/about"
+              className="
+                font-medium
+                text-slate-700
+                hover:text-blue-600
+                transition
+              "
+            >
+              About
+            </Link>
+        
+            <div
+              className="
+                flex
+                items-center
+                gap-3
+                bg-slate-100
+                px-3
+                py-2
+                rounded-full
+              "
+            >
+        
+              <div
+                className="
+                  w-10 h-10
+                  rounded-full
+                  bg-blue-600
+                  text-white
+                  flex
+                  items-center
+                  justify-center
+                  font-bold
+                "
+              >
+                {initial}
+              </div>
+        
+              <span
+                className="
+                  font-medium
+                  text-slate-700
+                "
+              >
+                {user?.name}
+              </span>
+        
+              <button
+                onClick={logout}
+                className="
+                  bg-red-600
+                  px-4
+                  py-2
+                  rounded-xl
+                  text-white
+                  hover:bg-red-700
+                  transition
+                "
+              >
                 Logout
-            </button>
-
-
-        </div>
-           
-
+              </button>
+        
+            </div>
+        
+          </div>
+        
         </nav>
-
     )
 }
 
