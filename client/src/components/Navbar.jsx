@@ -79,6 +79,12 @@ function Navbar({ user }) {
             {initial}
           </div>
 
+            <Link
+              to="/about"
+              className="hover:text-blue-500"
+            >
+              About
+            </Link>
           <span
             className="
               font-medium
@@ -96,12 +102,7 @@ function Navbar({ user }) {
             >
                 Logout
             </button>
-            <Link
-              to="/about"
-              className="hover:text-blue-500"
-            >
-              About
-            </Link>
+
 
         </div>
            
