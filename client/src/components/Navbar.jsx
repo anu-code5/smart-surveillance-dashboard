@@ -52,7 +52,7 @@ function Navbar({ user }) {
         </div>
         <Link
               to="/about"
-              className="hover:text-blue-500"
+              className="flex items-center hover:text-blue-500"
             >
               About
         </Link>
