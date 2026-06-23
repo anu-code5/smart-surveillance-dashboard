@@ -12,38 +12,43 @@ const createIncident = async (req, res) => {
 
     if (req.file) {
 
-        try {
-            detections = await detectObjects(req.file.path)
-        } catch (err) {
-            console.log("AI Error:", err.message)
-}
-        }
+    try {
+        detections =
+            await detectObjects(
+                req.file.path
+            )
 
-        if (detections.length > 0) {
+    } catch (err) {
 
-            detectedObject =
-                detections[0].object
-
-            confidence =
-                detections[0].confidence
-        }
-
-        const personCount =
-            detections.filter(
-                d =>
-                d.object === "person"
-            ).length
-
-        if (personCount >= 5) {
-            severity = "High"
-        }
-        else if (
-            personCount >= 2
-        ) {
-            severity = "Medium"
-        }
+        console.log(
+            "AI Error:",
+            err.message
+        )
     }
 
+    if (detections.length > 0) {
+
+        detectedObject =
+            detections[0].object
+
+        confidence =
+            detections[0].confidence
+    }
+
+    const personCount =
+        detections.filter(
+            d => d.object === "person"
+        ).length
+
+    if (personCount >= 5) {
+
+        severity = "High"
+
+    } else if (personCount >= 2) {
+
+        severity = "Medium"
+    }
+}
     
 
     try {
