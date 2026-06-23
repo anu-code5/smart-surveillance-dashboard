@@ -196,7 +196,7 @@ return (
         width="100%"
         className="rounded-lg"
       />
-      <div
+      {/* <div
         className={`
             px-60
             py-2
@@ -210,7 +210,7 @@ return (
             ? "🟢" 
             : "🔴"
         }
-        </div>
+        </div> */}
 
       <div className="flex gap-3 mt-4">
 
@@ -244,7 +244,7 @@ return (
               : "Analyze Frame"
           }
         </button>
-
+{/* 
         <button
         onClick={() =>
             setMonitoring(
@@ -271,7 +271,7 @@ return (
             : "Start Monitoring"
         }
 
-        </button>
+        </button> */}
 
       </div>
 
