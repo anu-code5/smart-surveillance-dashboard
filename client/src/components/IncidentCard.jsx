@@ -81,58 +81,73 @@ function IncidentCard({ incident }) {
                 {incident.confidence}
             </p> */}
 
-            {
-                <div className="mt-2">
-
-            <h4
-                className="
-                font-semibold
-                text-gray-700
-                mb-1
-                "
-            >
-                Detections
-            </h4>
-
-            <div className="space-y-1">
-
+            <div className="mt-2">
+            
+                <h4
+                    className="
+                    font-semibold
+                    text-gray-700
+                    mb-1
+                    "
+                >
+                    Detections
+                </h4>
+            
                 {
-                incident.detections?.map(
-                    (
-                    detection,
-                    index
-                    ) => (
-
-                    <p
-                        key={index}
-                        className="
-                        text-sm
-                        text-gray-600
-                        "
-                    >
-                        • {
-                        detection.object
-                        }
-                        {" "}
-                        (
-                        {
-                        (
-                            detection.confidence *
-                            100
-                        ).toFixed(0)
-                        }
-                        %)
-                    </p>
-
+                    incident.detections?.length > 0
+                    ? (
+            
+                        <div className="space-y-1">
+            
+                            {
+                                incident.detections.map(
+                                    (
+                                        detection,
+                                        index
+                                    ) => (
+            
+                                        <p
+                                            key={index}
+                                            className="
+                                            text-sm
+                                            text-gray-600
+                                            "
+                                        >
+                                            • {detection.object}
+                                            {" "}
+                                            (
+                                            {
+                                                (
+                                                    detection.confidence *
+                                                    100
+                                                ).toFixed(0)
+                                            }
+                                            %)
+                                        </p>
+            
+                                    )
+                                )
+                            }
+            
+                        </div>
+            
                     )
-                )
+                    : (
+            
+                        <p
+                            className="
+                            text-sm
+                            text-gray-500
+                            italic
+                            "
+                        >
+                            AI analysis unavailable
+                        </p>
+            
+                    )
                 }
-
+            
             </div>
-
-            </div>
-            }
-
             <p className="mt-2 text-sm">
                 Logged by:
                 {" "}
