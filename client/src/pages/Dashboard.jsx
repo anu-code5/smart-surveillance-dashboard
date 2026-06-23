@@ -93,7 +93,7 @@ function Dashboard() {
                     text-2xl
                     font-bold
                     text-white
-                    mb-2
+                    mb-1
                     bg-black/30
                     backdrop-blur-md
                     p-4
@@ -104,11 +104,10 @@ function Dashboard() {
             <h5
                 className="
                     text-xl
-                    text-slate
+                    text-white
                     mb-2
-                    bg-black/30
                     backdrop-blur-md
-                    p-4
+                    p-1
                 ">Real-time monitoring using YOLOv8 object detection and automated alert generation.
             </h5>
 
