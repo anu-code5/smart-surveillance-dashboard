@@ -50,6 +50,12 @@ function Navbar({ user }) {
         </h1>
 
         </div>
+        <Link
+              to="/about"
+              className="hover:text-blue-500"
+            >
+              About
+        </Link>
 
         <div
           className="
@@ -79,12 +85,6 @@ function Navbar({ user }) {
             {initial}
           </div>
 
-            <Link
-              to="/about"
-              className="hover:text-blue-500"
-            >
-              About
-            </Link>
           <span
             className="
               font-medium
