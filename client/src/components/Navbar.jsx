@@ -46,7 +46,7 @@ function Navbar({ user }) {
         </div>
 
         <h1 className="text-3xl font-bold text-slate-800">
-            Surveillance Dashboard
+            Smart Surveillance Monitoring System
         </h1>
 
         </div>
