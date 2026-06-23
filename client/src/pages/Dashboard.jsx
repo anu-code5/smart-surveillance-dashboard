@@ -107,8 +107,10 @@ function Dashboard() {
                     text-white
                     mb-2
                     backdrop-blur-md
-                    p-1
-                ">Real-time monitoring using YOLOv8 object detection and automated alert generation.
+                    p-2
+                "
+            >
+                Real-time monitoring using YOLOv8 object detection and automated alert generation.
             </h5>
 
             <div className="grid grid-cols-2 gap-6">
