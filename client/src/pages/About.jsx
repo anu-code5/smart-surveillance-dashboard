@@ -141,21 +141,21 @@ function About() {
 
       </div>
 
+
+      <div className="mt-8 bg-yellow-50 border border-yellow-300 p-4 rounded-xl">
+    
+      <h3 className="font-bold mb-2">
+        Deployment Note
+      </h3>
+    
+      <p>
+        The deployed demo uses free cloud hosting services.
+        AI-powered object detection may experience increased
+        latency due to resource limitations of free-tier
+        infrastructure.
+      </p>
+
     </div>
-
-  <div className="mt-8 bg-yellow-50 border border-yellow-300 p-4 rounded-xl">
-
-  <h3 className="font-bold mb-2">
-    Deployment Note
-  </h3>
-
-  <p>
-    The deployed demo uses free cloud hosting services.
-    AI-powered object detection may experience increased
-    latency due to resource limitations of free-tier
-    infrastructure.
-  </p>
-
 </div>
 
   )
