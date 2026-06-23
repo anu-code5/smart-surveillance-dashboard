@@ -6,8 +6,3 @@
     }
   ]
 }
-{
-  "git": {
-    "deploymentEnabled": false
-  }
-}
