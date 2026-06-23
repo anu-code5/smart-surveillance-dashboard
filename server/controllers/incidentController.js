@@ -15,7 +15,8 @@ const createIncident = async (req, res) => {
         try {
             detections = await detectObjects(req.file.path)
         } catch (err) {
-            console.log("AI unavailable")
+            console.log("AI Error:", err.message)
+}
         }
 
         if (detections.length > 0) {
