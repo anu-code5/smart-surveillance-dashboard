@@ -52,13 +52,7 @@ AI Service: https://smart-surveillance-ai.onrender.com
 
 ## System Architecture
 
-Frontend (React + Tailwind CSS)
-↓
-Backend API (Node.js + Express)
-↓
-MongoDB Atlas
-
-AI Service (Flask + YOLOv8)
+Frontend (React + Tailwind CSS)->Backend API (Node.js + Express)->MongoDB Atlas->AI Service (Flask + YOLOv8)
 
 ---
 
