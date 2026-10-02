@@ -19,7 +19,7 @@ function About() {
 
         <div className="bg-white p-6 rounded-xl shadow">
           <h2 className="font-bold text-lg mb-2">
-            🎥 Live Monitoring
+             Live Monitoring
           </h2>
 
           <p>
@@ -29,7 +29,7 @@ function About() {
 
         <div className="bg-white p-6 rounded-xl shadow">
           <h2 className="font-bold text-lg mb-2">
-            🤖 AI Detection
+             AI Detection
           </h2>
 
           <p>
@@ -40,7 +40,7 @@ function About() {
 
         <div className="bg-white p-6 rounded-xl shadow">
           <h2 className="font-bold text-lg mb-2">
-            🚨 Alert Classification
+             Alert Classification
           </h2>
 
           <p>
@@ -51,7 +51,7 @@ function About() {
 
         <div className="bg-white p-6 rounded-xl shadow">
           <h2 className="font-bold text-lg mb-2">
-            📋 Incident Management
+             Incident Management
           </h2>
 
           <p>
@@ -62,7 +62,7 @@ function About() {
 
         <div className="bg-white p-6 rounded-xl shadow">
           <h2 className="font-bold text-lg mb-2">
-            📊 Analytics
+             Analytics
           </h2>
 
           <p>
@@ -73,7 +73,7 @@ function About() {
 
         <div className="bg-white p-6 rounded-xl shadow">
           <h2 className="font-bold text-lg mb-2">
-            🔐 Secure Access
+             Secure Access
           </h2>
 
           <p>
