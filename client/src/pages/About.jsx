@@ -92,18 +92,7 @@ function About() {
 
         <pre className="text-gray-700 whitespace-pre-wrap">
         {`
-        React + Tailwind
-        |
-        v
-        Node.js + Express
-        |
-        v
-        MongoDB Atlas
-        
-        \\
-        
-        Flask AI Service
-        (YOLOv8)
+        React + Tailwind -> Node.js + Express -> MongoDB Atlas ->Flask AI Service (YOLOv8)
         `}
         </pre>
 
