@@ -133,11 +133,11 @@ function Login() {
             Register
           </Link>
         </p>
-        <h4 className="text-3xl font-bold text-center text-gray-800 mb-2">
+        <p className="text-gray-800 mb-2">
         Dummy credentials:
           email: anushka@gmail.com
           password: 123456
-      </h4>
+      </p>
       </form>
 
     </div>
