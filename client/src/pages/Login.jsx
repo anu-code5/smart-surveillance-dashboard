@@ -133,8 +133,8 @@ function Login() {
             Register
           </Link>
         </p>
-        <p className="text-gray-800 mb-2">
-        Dummy credentials:
+        <p className="text-green-800 mb-2">
+        Dummy credentials<br></br>
           email: anushka@gmail.com
           password: 123456
       </p>
